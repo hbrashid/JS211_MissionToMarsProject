@@ -11,6 +11,36 @@ const jobTypes = {
 
 // Your code will go here
 
+// Class for CrewMember
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  enterShip(ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
+
+// Class for Ship
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement(mav) {
+    if (this.crew.length > 0) {
+      return this.ability;
+  } else {
+    return "Can't perform a mission yet.";
+  }
+}
+}
 
 
 
